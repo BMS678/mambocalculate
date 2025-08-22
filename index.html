@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMS Calculator Pro - Calculatrice Professionnelle par OpimaCode</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/homepage.css">
+    <link rel="stylesheet" href="styles/effects.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/monetization.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.svg" alt="BMS Calculator" class="logo-img">
+                <span class="logo-text">BMS Calculator Pro</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Accueil</a>
+                <a href="#calculator" class="nav-link">Calculatrice</a>
+                <a href="#settings" class="nav-link">Réglages</a>
+                <a href="#about" class="nav-link">À propos</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page d'accueil -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-logo animate-fade-in-up delay-100">
+                <img src="assets/logo.svg" alt="BMS Calculator" class="hero-logo-img">
+            </div>
+            <h1 class="hero-title animate-fade-in-up delay-200">BMS Calculator Pro</h1>
+            <p class="hero-subtitle animate-fade-in-up delay-300">La calculatrice professionnelle de nouvelle génération par OpimaCode</p>
+            <div class="hero-features">
+                <div class="feature-item animate-fade-in-up delay-400 hover-lift">
+                    <i class="fas fa-calculator"></i>
+                    <span>Calculs avancés</span>
+                </div>
+                <div class="feature-item animate-fade-in-up delay-500 hover-lift">
+                    <i class="fas fa-brain"></i>
+                    <span>Fonctions scientifiques</span>
+                </div>
+                <div class="feature-item animate-fade-in-up delay-600 hover-lift">
+                    <i class="fas fa-memory"></i>
+                    <span>Système de mémoire</span>
+                </div>
+                <div class="feature-item animate-fade-in-up delay-700 hover-lift">
+                    <i class="fas fa-history"></i>
+                    <span>Historique complet</span>
+                </div>
+            </div>
+            <div class="hero-buttons animate-fade-in-up delay-800">
+                <a href="#calculator" class="btn btn-primary btn-premium">
+                    <i class="fas fa-play"></i>
+                    Commencer
+                </a>
+                <a href="#settings" class="btn btn-secondary btn-premium">
+                    <i class="fas fa-cog"></i>
+                    Réglages
+                </a>
+            </div>
+            
+            <!-- Section Support et Dons -->
+            <div class="support-section animate-fade-in-up delay-900">
+                <div class="support-header">
+                    <h3><i class="fas fa-heart"></i> Soutenez le Projet</h3>
+                    <p>Votre soutien nous aide à améliorer BMS Calculator Pro</p>
+                </div>
+                <div class="support-options">
+                    <button class="support-btn coffee-btn" onclick="showDonationModal('coffee')">
+                        <i class="fas fa-coffee"></i>
+                        <span>Offrir un café</span>
+                        <small>2$</small>
+                    </button>
+                    <button class="support-btn meal-btn" onclick="showDonationModal('meal')">
+                        <i class="fas fa-utensils"></i>
+                        <span>Offrir un repas</span>
+                        <small>5$</small>
+                    </button>
+                    <button class="support-btn custom-btn" onclick="showDonationModal('custom')">
+                        <i class="fas fa-gift"></i>
+                        <span>Don personnalisé</span>
+                        <small>Montant libre</small>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="calculator-preview animate-scale-in delay-1000">
+                <div class="preview-display">123.45</div>
+                <div class="preview-buttons">
+                    <div class="preview-btn">7</div>
+                    <div class="preview-btn">8</div>
+                    <div class="preview-btn">9</div>
+                    <div class="preview-btn operator">÷</div>
+                    <div class="preview-btn">4</div>
+                    <div class="preview-btn">5</div>
+                    <div class="preview-btn">6</div>
+                    <div class="preview-btn operator">×</div>
+                    <div class="preview-btn">1</div>
+                    <div class="preview-btn">2</div>
+                    <div class="preview-btn">3</div>
+                    <div class="preview-btn operator">−</div>
+                    <div class="preview-btn zero">0</div>
+                    <div class="preview-btn">.</div>
+                    <div class="preview-btn equals">=</div>
+                </div>
+            </div>
+           
+            <!-- Bannière Publicitaire Premium -->
+            <div class="ad-banner animate-fade-in-up delay-1000">
+                <div class="ad-content glass">
+                    <div class="ad-header">
+                        <span class="ad-label">Publicité</span>
+                        <button class="ad-close" onclick="closeAdBanner()"></button>
+                    </div>
+                    <div class="ad-body">
+                        <div class="ad-logo"></div>
+                        <div class="ad-text"></div>
+                        <button class="ad-cta" onclick="visitAdvertiser()"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Calculatrice -->
+    <section id="calculator" class="calculator-section" style="display: none;">
+        <div class="calculator-container">
+            <!-- Header avec thème et mode -->
+            <div class="calculator-header">
+                <div class="mode-switch">
+                    <button id="standardMode" class="mode-btn active">Standard</button>
+                    <button id="scientificMode" class="mode-btn">Scientifique</button>
+                </div>
+                <div class="theme-toggle">
+                    <button id="themeToggle" class="theme-btn"></button>
+                </div>
+                <div class="back-to-home">
+                    <button id="backToHome" class="back-btn"></button>
+                </div>
+            </div>
+
+            <!-- Affichage principal -->
+            <div class="calculator">
+                <div class="display-container">
+                    <div class="history-display" id="historyDisplay"></div>
+                    <input type="text" id="display" disabled>
+                </div>
+
+                <!-- Boutons mémoire -->
+                <div class="memory-buttons">
+                    <button onclick="memoryClear()" class="memory-btn" title="Effacer la mémoire">MC</button>
+                    <button onclick="memoryRecall()" class="memory-btn" title="Rappeler la mémoire">MR</button>
+                    <button onclick="memoryAdd()" class="memory-btn" title="Ajouter à la mémoire">M+</button>
+                    <button onclick="memorySubtract()" class="memory-btn" title="Soustraire de la mémoire">M-</button>
+                </div>
+
+                <!-- Boutons principaux -->
+                <div class="buttons">
+                    <button onclick="clearDisplay()" class="function-btn clear-btn">C</button>
+                    <button onclick="clearEntry()" class="function-btn">CE</button>
+                    <button onclick="backspace()" class="function-btn"><i class="fas fa-backspace"></i></button>
+                    <button onclick="setOperation('/')" class="operator-btn">÷</button>
+                    
+                    <button onclick="appendToDisplay('7')" class="number-btn">7</button>
+                    <button onclick="appendToDisplay('8')" class="number-btn">8</button>
+                    <button onclick="appendToDisplay('9')" class="number-btn">9</button>
+                    <button onclick="setOperation('*')" class="operator-btn">×</button>
+                    
+                    <button onclick="appendToDisplay('4')" class="number-btn">4</button>
+                    <button onclick="appendToDisplay('5')" class="number-btn">5</button>
+                    <button onclick="appendToDisplay('6')" class="number-btn">6</button>
+                    <button onclick="setOperation('-')" class="operator-btn">−</button>
+                    
+                    <button onclick="appendToDisplay('1')" class="number-btn">1</button>
+                    <button onclick="appendToDisplay('2')" class="number-btn">2</button>
+                    <button onclick="appendToDisplay('3')" class="number-btn">3</button>
+                    <button onclick="setOperation('+')" class="operator-btn">+</button>
+                    
+                    <button onclick="appendToDisplay('0')" class="number-btn zero-btn">0</button>
+                    <button onclick="appendToDisplay('.')" class="number-btn">.</button>
+                    <button onclick="calculateResult()" class="equals-btn">=</button>
+                </div>
+
+                <!-- Boutons scientifiques (cachés par défaut) -->
+                <div class="scientific-buttons" id="scientificButtons" style="display: none;">
+                    <div class="scientific-row"></div>
+                    <div class="scientific-row"></div>
+                    <div class="scientific-row"></div>
+                </div>
+
+                <!-- Historique des calculs -->
+                <div class="history-panel" id="historyPanel">
+                    <div class="history-header"></div>
+                    <div class="history-list" id="historyList"></div>
+                    <button onclick="exportHistory()" class="export-btn">Exporter</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Réglages -->
+    <section id="settings" class="settings-section" style="display: none;">
+        <div class="settings-container">
+            <div class="settings-header">
+                <h2><i class="fas fa-cog"></i> Réglages</h2>
+                <button id="backToHomeFromSettings" class="back-btn">
+                    <i class="fas fa-home"></i>
+                </button>
+            </div>
+            
+            <div class="settings-content">
+                <!-- Apparence -->
+                <div class="settings-group glass hover-lift">
+                    <h3><i class="fas fa-palette"></i> Apparence</h3>
+                    <div class="setting-item"></div>
+                    <div class="setting-item"></div>
+                    <div class="setting-item"></div>
+                </div>
+
+                <!-- Calculatrice -->
+                <div class="settings-group glass hover-lift">
+                    <h3><i class="fas fa-calculator"></i> Calculatrice</h3>
+                    <div class="setting-item"></div>
+                    <div class="setting-item"></div>
+                    <div class="setting-item"></div>
+                </div>
+
+                <!-- Historique -->
+                <div class="settings-group glass hover-lift">
+                    <h3><i class="fas fa-history"></i> Historique</h3>
+                    <div class="setting-item"></div>
+                    <div class="setting-item"></div>
+                    <div class="setting-item"></div>
+                </div>
+
+                <!-- Clavier -->
+                <div class="settings-group glass hover-lift">
+                    <h3><i class="fas fa-keyboard"></i> Clavier</h3>
+                    <div class="setting-item"></div>
+                    <div class="setting-item"></div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="settings-group glass hover-lift">
+                    <h3><i class="fas fa-bell"></i> Notifications</h3>
+                    <div class="setting-item"></div>
+                    <div class="setting-item"></div>
+                </div>
+
+                <!-- Actions -->
+                <div class="settings-actions">
+                    <button id="saveSettings" class="btn btn-primary btn-premium"></button>
+                    <button id="resetSettings" class="btn btn-secondary btn-premium"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about" class="about-section" style="display: none;">
+        <div class="about-container">
+            <div class="about-header">
+                <h2><i class="fas fa-info-circle"></i> À propos</h2>
+                <button id="backToHomeFromAbout" class="back-btn"></button>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-logo animate-fade-in-left"></div>
+                <div class="about-info animate-fade-in-right"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cursor personnalisé -->
+    <div class="custom-cursor"></div>
+
+    <!-- Modal de Don -->
+    <div id="donationModal" class="donation-modal">
+        <div class="donation-content glass">
+            <div class="donation-header">
+                <h3><i class="fas fa-heart"></i> Soutenez BMS Calculator Pro</h3>
+                <button class="close-modal" onclick="closeDonationModal()"></button>
+            </div>
+            <div class="donation-body">
+                <div class="donation-methods"></div>
+                <div class="donation-amount"></div>
+                <div class="donation-message"></div>
+            </div>
+            <div class="donation-footer">
+                <button class="btn btn-primary btn-premium" onclick="confirmDonation()"></button>
+                <p class="donation-note"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/app-config.js"></script>
+    <script src="config/monetization-config.js"></script>
+    <script src="config/rdc-config.js"></script>
+    <script src="scripts/calculator.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/effects.js"></script>
+    <script src="scripts/monetization.js"></script>
+</body>
+</html>
